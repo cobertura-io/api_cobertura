@@ -2,9 +2,11 @@ const express = require('express');
 const routes = express.Router();
 
 const UserController = require('./controllers/users')
-const UserDAO = require('./models/userDAO')
 
-routes.get('/perfil', UserController.index)
-routes.get('/perfil/:id', UserController.indexID)
+routes.get('/users', UserController.get_all)
+routes.get('/users/:id', UserController.get)
+routes.delete('/users/:id', UserController.delete)
+routes.post('/users/create', UserController.create)
+routes.post('/users/authenticate', UserController.authenticate)
 
 module.exports = routes;

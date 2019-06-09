@@ -71,6 +71,36 @@ h1 {
   }
 }
 
+/* LOGIN / CADASTRO */
+.containerHome {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.containerLogin {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerLogin > form > input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 36px;
+  border: none;
+  font-family: 'CircularStd_Book', sans-serif;
+}
+
+.containerLogin > form > button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 36px;
+  border: none;
+  background-color: rgba(247, 202, 24, 1);
+  color: #FFFFFF;
+  font-family: 'CircularStd_Book', sans-serif;
+}
+
 @font-face {
   font-family: 'CircularStd';
   src: url('./fonts/CircularStd-MediumItalic.ttf') format('truetype');

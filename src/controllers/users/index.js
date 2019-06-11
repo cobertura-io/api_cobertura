@@ -54,7 +54,7 @@ module.exports = {
   async get (req, res) {
     const id = req.params.id
     await userDAO.get_by_id(id, (err, result) => {
-      if(err)
+      if(err || result.length === 0)
         return res.status(400).json({ error: true, message: `Ops! não foi possível pegar o usuário ${id}` })
         
       return res.status(200).json({ error: false, data: result[0] })
@@ -63,10 +63,29 @@ module.exports = {
 
   async get_all (req, res) {
     await userDAO.get_all((err, result) => {
-      if(err)
+      if(err || result.length === 0)
         return res.status(400).json({ error: true, message: 'Ops! não foi possível pegar todos usuários' })
         
       return res.status(200).json({ error: false, data: result })
     })
   },
+
+  async get_broker_all (req, res) {
+    await userDAO.get_all_broker((err, result) => {
+      if(err || result.length === 0)
+        return res.status(400).json({ error: true, message: 'Ops! não foi possível pegar todos corretores' })
+        
+      return res.status(200).json({ error: false, data: result })
+    })
+  },
+
+  async get_broker (req, res) {
+    const url = req.params.url
+    await userDAO.get_broker(url, (err, result) => {
+      if(err || result.length === 0)
+        return res.status(400).json({ error: true, message: 'Ops! não foi possível pegar o corretor' })
+        
+      return res.status(200).json({ error: false, data: result })
+    })
+  }
 }

@@ -23,6 +23,21 @@ module.exports = {
         WHERE pk_user = ${id}`, callback)
   },
 
+  get_all_broker (callback) {
+    db.query(`
+      SELECT user.pk_user, user.avatar, user.name, user.surname, user.phone, user.email, state.name as state, broker.creci FROM user
+        JOIN broker ON broker.fk_user = user.pk_user
+        JOIN state ON state.pk_state = broker.region`, callback)
+  },
+
+  get_broker (url, callback) {
+    db.query(`
+      SELECT user.pk_user, user.avatar, user.url_profile, user.name, user.surname, user.phone, user.email, state.name as state, broker.creci FROM user
+        JOIN broker ON broker.fk_user = user.pk_user
+        JOIN state ON state.pk_state = broker.region
+        WHERE url_profile = '${url}'`, callback)
+  },
+
   delete (id, callback) {
     db.query(`DELETE FROM user WHERE pk_user = ${id}`, callback)
   }

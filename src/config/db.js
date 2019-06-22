@@ -2,9 +2,10 @@ var sql = require('mysql');
 
 var connection = function() {
   return sql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root1234',
+    host: 'mysql669.umbler.com',
+    port: '41890',
+    user: 'devops_cobertura',
+    password: 'r00T7790',
     database: 'cobertura'
   });
 };

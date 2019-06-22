@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken')
+const authConfig = require('./../../config/auth')
 const userDAO = require('./../../models/userDAO')
 
 module.exports = {
@@ -5,16 +7,23 @@ module.exports = {
     const { email, password } = req.body
     
     if(email === undefined || email.length === 0)
-      return res.status(403).json({ error: true, message: 'Favor, inserir email' })
+      return res.status(200).json({ message: 'Favor, inserir email' })
 
     if(password === undefined || password.length === 0)
-      return res.status(403).json({error: true, message: 'Favor, inserir senha' })
+      return res.status(200).json({ message: 'Favor, inserir senha' })
 
-    await userDAO.authenticate({ email, password }, (err, result) => {
+    await userDAO.authenticate({ email, password }, (err, user) => {
       if(err)
-        return res.status(400).json({ error: true, message: 'As credenciais estão inválidas' })
+        return res.status(400).json({ message: 'Ops! não foi possível realizar a requisição' })
+
+      if(user[0] === undefined)
+        return res.status(200).json({ message: 'As credenciais estão inválidas' })
+
+      const token = jwt.sign({ id: user[0].pk_user }, authConfig.secret, {
+        expiresIn: 86400
+      })
       
-      return res.status(200).json({ error: false, data: result[0] })
+      return res.status(200).json({ user: user[0], token })
     })
   },
 

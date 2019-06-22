@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <p align='center'>
   <img src='https://i.imgur.com/CDYRNuN.png' height='90px'/>
 </p>
@@ -11,6 +10,7 @@ Coisas necessárias para rodar o maravilhoso **Cobertura** 😁
 
 * Node.js
 * Yarn/NPM (Recomendável utilizar YARN)
+* Insomnia
 
 ## Estrutura de pastas
 ```
@@ -30,8 +30,5 @@ Para iniciar o projeto no modo desenvolvimento siga os passos abaixos:
 2. Tenha todos os pré-requisitos instalados
 3. Acesse a pasta do projeto pelo terminal
 4. Digite o comando ```yarn start```
-5. Aguarde a mensagem de **Servidor iniciado com sucesso na porta 8080**
-6. Acesse pelo navegador **http://127.0.0.1:8080/**
-=======
-# api_cobertura
->>>>>>> 5b51145613021ce29f3c18ae8082ff7b658da46d
+5. Aguarde a mensagem de **Servidor iniciado com sucesso na porta 8085**
+6. Acesse pelo navegador **http://127.0.0.1:8085/**

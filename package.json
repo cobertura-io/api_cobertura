@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "start": "nodemon ./src"
+    "development": "NODE_ENV=development && nodemon ./src"
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
@@ -11,5 +12,13 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0"
   }
 }

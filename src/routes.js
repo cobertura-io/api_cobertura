@@ -1,5 +1,5 @@
-const express = require('express');
-const routes = express.Router();
+const express = require('express')
+const routes = express.Router()
 
 const UserController = require('./controllers/users')
 // const HouseController = require('./controllers/houses')
@@ -14,4 +14,4 @@ routes.post('/users/authenticate', UserController.authenticate)
 
 // routes.get('/houses/:id', HouseController.get_all)
 
-module.exports = routes;
+module.exports = routes
